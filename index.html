@@ -1,0 +1,117 @@
+<!-- Introdução
+
+Seu objetivo é criar uma SPA (Single Page Application) seguindo o layout que está aqui: https://www.figma.com/file/U8ojEXx2vxSK2KOvoBvHVH8y/Frontend-test?node-id=13%3A42 
+
+O que sua aplicação deverá fazer
+
+    Incluir transações de compra ou venda de mercadoria.
+    Criar um extrato das transações incluídas. As transações deverão ser mostradas na ordem em que foram incluídas.
+    Mostrar o saldo final e destacar se houve lucro ou prejuízo.
+    A aplicação deverá ser responsiva e estar de acordo com o layout fornecido.
+    Persistir as transações no Local Storage.
+
+Outros requisitos
+
+HTML:
+
+    As opções do campo “Tipo de transação” são: Compra e Venda.
+    Caso não exista nenhuma transação cadastrada, adicione a mensagem “Nenhuma transação cadastrada.” na lista do Extrato.
+
+CSS:
+
+    Testar em smartphones, tablets (modos portrait e landscape) e monitores a partir de 1024px até 1900px. (Através do inspecionar elemento no navegador)
+    A fonte utilizada é a Lato.
+    A largura máxima do conteúdo é 1100px.
+
+    Divisão de atividades
+
+HTML e CSS:
+
+    ATIVIDADE 1 – HTML/CSS:
+        Desenvolvimento completo do HTML
+        Início do desenvolvimento do CSS (versão mobile)
+
+    ATIVIDADE 2 – HTML/CSS:
+        Desenvolvimento completo do CSS (versão responsiva)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap" rel="stylesheet"> 
+    <title>Controle Financeiro</title>
+</head>
+<body>
+    <header>
+        <img src="./assets/img/logo.png" alt="logo">
+        <h1>Controle Financeiro</h1>
+    </header>
+    
+    <div class="sidenav" id="sidenav">
+        <ul>
+            <li class="item"><a href="#">Cadastro de transações</a></li>
+            <li class="item"><a href="#">Limpar dados</a></li>
+            <li class="item"><a href="#">Configurações</a></li>
+        </ul>
+    </div>
+
+    <section class="secao-transacao">
+        <div class="campos-transacao">
+            <label for="tipo-transacao">Tipo de transação</label>
+            <select name="tipo-transacao" id="tipo-transacao">
+                <option value="compra">Compra</option>
+                <option value="venda">Venda</option>
+            </select>
+        </div>
+
+        <div class="campos-transacao">
+            <label for="nome-mercadoria">Nome da mercadoria</label>
+            <input type="text" name="nome-mercadoria" id="nome-mercadoria">
+        </div>
+
+        <div class="campos-transacao">
+            <label for="valor-mercadoria">Valor</label>
+            <input type="text" name="valor-mercadoria" id="valor-mercadoria">
+        </div>
+
+        <button>Adicionar transação</button>
+
+    </section>
+
+    <section class="secao-extrato">
+        <h2>Extrato de transações</h1>
+        <table>
+            <tr>
+                <td>Mercadoria</td>
+                <td>Valor</td>
+            </tr>
+            <tr>
+                <td>Serviço de streaming</td>
+                <td>R$ 59,90</td>
+            </tr>
+            <tr>
+                <td>Celular</td>
+                <td>R$ 1.999,99</td> 
+            </tr>
+            <tr>
+                <td>Passagem</td>
+                <td>R$ 1200,00</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>R$ 3.259,89</td>
+            </tr>
+        </table>
+
+    </section>
+    
+    
+</body>
+</html>

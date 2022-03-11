@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 1100px;
+    font-family: 'Lato', sans-serif;
+}
+
+.secao-transacao {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.campos-transacao {
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.secao-extrato {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* .sidenav {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-top: 40px;
+    background-color: #333333;
+} */
+
+#sidenav ul, li, a {
+    text-decoration: none;
+    list-style:none;
+    /* color: white; */
+}
