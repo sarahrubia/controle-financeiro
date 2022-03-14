@@ -54,7 +54,6 @@ HTML e CSS:
             <img src="./assets/img/logo.png" alt="logo">
             <h1>Controle Financeiro</h1>
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            
         </div>
     </header>
     
@@ -64,71 +63,84 @@ HTML e CSS:
         <a href="#">Limpar dados</a>
     </div>
 
-    <section class="secao-transacao">
-        <div class="campos-transacao">
-            <label for="tipo-transacao">Tipo de transação</label>
-            <select name="tipo-transacao" id="tipo-transacao">
-                <option value="compra">Compra</option>
-                <option value="venda">Venda</option>
-            </select>
-        </div>
+    <!-- Adicionar sidebar sem javascript: https://dev.to/swastikyadav/menu-sidebar-toggle-functionality-with-pure-css-and-no-javascript-1je6 
+    
+        https://medium.com/@9cv9official/create-a-beautiful-hover-triggered-expandable-sidebar-with-simple-html-css-and-javascript-9f5f80a908d1
 
-        <div class="campos-transacao">
-            <label for="nome-mercadoria">Nome da mercadoria</label>
-            <input type="text" name="nome-mercadoria" id="nome-mercadoria" placeholder="Input">
-        </div>
+        https://yogeshchauhan.com/how-to-create-a-sidebar-using-pure-css/
+    -->
 
-        <div class="campos-transacao">
-            <label for="valor-mercadoria">Valor</label>
-            <input type="text" name="valor-mercadoria" id="valor-mercadoria" placeholder="R$ 0,00">
-        </div>
+    <div class="secoes">
+        <section class="secao-transacao">
+            <div class="nova-transacao">
+                <h1>Nova transação</h1>
+            </div>
+            <div class="campos-transacao">
+                <label for="tipo-transacao">Tipo de transação</label>
+                <select name="tipo-transacao" id="tipo-transacao">
+                    <option value="compra">Compra</option>
+                    <option value="venda">Venda</option>
+                </select>
+            </div>
+    
+            <div class="campos-transacao">
+                <label for="nome-mercadoria">Nome da mercadoria</label>
+                <input type="text" name="nome-mercadoria" id="nome-mercadoria" placeholder="Input">
+            </div>
+    
+            <div class="campos-transacao">
+                <label for="valor-mercadoria">Valor</label>
+                <input type="text" name="valor-mercadoria" id="valor-mercadoria" placeholder="R$ 0,00">
+            </div>
+    
+            <button>Adicionar transação</button>
+    
+        </section>
+    
+        <section class="secao-extrato">
+            <h1>Extrato de transações</h1>
+            <table>
+                <tr>
+                    <td class="td-receita"> </td>
+                    <td class="td-mercadoria"><strong>Mercadoria</strong></td>
+                    <td class="td-valor"><strong>Valor</strong></td>
+                </tr>
+                <tr class="underline">
+                    <td class="underline" colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>Entrada</td>
+                    <td>R$ 5.500,00</td>
+                </tr>
+                <tr class="underline">
+                    <td class="underline" colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Celular</td>
+                    <td>R$ 1.999,99</td> 
+                </tr>
+                <tr class="underline">
+                    <td class="underline" colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Passagem</td>
+                    <td>R$ 1200,00</td>
+                </tr>
+                <tr class="underline double-underline">
+                    <td class="underline" colspan="3"></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td><strong>Total</strong></td>
+                    <td><strong>R$ 2.300,01</strong></td>
+                </tr>
+            </table>
+        </section>
+    </div>
 
-        <button>Adicionar transação</button>
-
-    </section>
-
-    <section class="secao-extrato">
-        <h2>Extrato de transações</h1>
-        <table>
-            <tr>
-                <td style="width: 4%;"> </td>
-                <td style="width: 66%;"><strong>Mercadoria</strong></td>
-                <td style="width: 30%;"><strong>Valor</strong></td>
-            </tr>
-            <tr class="underline">
-                <td class="underline" colspan="3"></td>
-            </tr>
-            <tr>
-                <td>+</td>
-                <td>Entrada</td>
-                <td>R$ 5.500,00</td>
-            </tr>
-            <tr class="underline">
-                <td class="underline" colspan="3"></td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>Celular</td>
-                <td>R$ 1.999,99</td> 
-            </tr>
-            <tr class="underline">
-                <td class="underline" colspan="3"></td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>Passagem</td>
-                <td>R$ 1200,00</td>
-            </tr>
-            <tr class="underline double-underline">
-                <td class="underline" colspan="3"></td>
-            </tr>
-            <tr>
-                <td> </td>
-                <td><strong>Total</strong></td>
-                <td><strong>R$ 2.300,01</strong></td>
-            </tr>
-        </table>
-    </section>
     
 <script>
     function openNav() {
