@@ -49,17 +49,19 @@ HTML e CSS:
     <title>Controle Financeiro</title>
 </head>
 <body>
-    <header>
-        <img src="./assets/img/logo.png" alt="logo">
-        <h1>Controle Financeiro</h1>
+    <header class="header">
+        <div class="header-box">
+            <img src="./assets/img/logo.png" alt="logo">
+            <h1>Controle Financeiro</h1>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            
+        </div>
     </header>
     
-    <div class="sidenav" id="sidenav">
-        <ul>
-            <li class="item"><a href="#">Cadastro de transações</a></li>
-            <li class="item"><a href="#">Limpar dados</a></li>
-            <li class="item"><a href="#">Configurações</a></li>
-        </ul>
+    <div  class="sidenav" id="MySideNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Cadastro de transações</a>
+        <a href="#">Limpar dados</a>
     </div>
 
     <section class="secao-transacao">
@@ -73,12 +75,12 @@ HTML e CSS:
 
         <div class="campos-transacao">
             <label for="nome-mercadoria">Nome da mercadoria</label>
-            <input type="text" name="nome-mercadoria" id="nome-mercadoria">
+            <input type="text" name="nome-mercadoria" id="nome-mercadoria" placeholder="Input">
         </div>
 
         <div class="campos-transacao">
             <label for="valor-mercadoria">Valor</label>
-            <input type="text" name="valor-mercadoria" id="valor-mercadoria">
+            <input type="text" name="valor-mercadoria" id="valor-mercadoria" placeholder="R$ 0,00">
         </div>
 
         <button>Adicionar transação</button>
@@ -89,29 +91,53 @@ HTML e CSS:
         <h2>Extrato de transações</h1>
         <table>
             <tr>
-                <td>Mercadoria</td>
-                <td>Valor</td>
+                <td style="width: 4%;"> </td>
+                <td style="width: 66%;"><strong>Mercadoria</strong></td>
+                <td style="width: 30%;"><strong>Valor</strong></td>
+            </tr>
+            <tr class="underline">
+                <td class="underline" colspan="3"></td>
             </tr>
             <tr>
-                <td>Serviço de streaming</td>
-                <td>R$ 59,90</td>
+                <td>+</td>
+                <td>Entrada</td>
+                <td>R$ 5.500,00</td>
+            </tr>
+            <tr class="underline">
+                <td class="underline" colspan="3"></td>
             </tr>
             <tr>
+                <td>-</td>
                 <td>Celular</td>
                 <td>R$ 1.999,99</td> 
             </tr>
+            <tr class="underline">
+                <td class="underline" colspan="3"></td>
+            </tr>
             <tr>
+                <td>-</td>
                 <td>Passagem</td>
                 <td>R$ 1200,00</td>
             </tr>
+            <tr class="underline double-underline">
+                <td class="underline" colspan="3"></td>
+            </tr>
             <tr>
-                <td>Total</td>
-                <td>R$ 3.259,89</td>
+                <td> </td>
+                <td><strong>Total</strong></td>
+                <td><strong>R$ 2.300,01</strong></td>
             </tr>
         </table>
-
     </section>
     
+<script>
+    function openNav() {
+      document.getElementById("MySideNav").style.width = "350px";
+    }
     
+    function closeNav() {
+      document.getElementById("MySideNav").style.width = "0";
+    }
+    </script>
 </body>
 </html>
