@@ -14,25 +14,23 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header-box">
+    <header class="cabecalho">
+        <div class="cabecalho-box">
             <img src="./assets/img/logo.png" alt="logo">
             <h1>Controle Financeiro</h1>
             <label for="aside" class="btn sidenav-toggle">&#9776;</label>
         </div>
         <input type="checkbox" id="aside" hidden />
         <section id="sidebar">
-            <div class="sidenav" id="MySideNav">
+            <div class="sidenav" id="minha-sidenav">
                 <label for="aside" class="btn sidenav-btn">&times;</label>
-                <a href="#" class="cadastro">Cadastro de transações</a>
-                <a href="#" class="limpar">Limpar dados</a>
+                <a href="#" class="cadastro-transacao">Cadastro de transações</a>
+                <a href="#" class="limpar-dados">Limpar dados</a>
             </div>
         </section>
     </header>
 
-
-
-    <div class="secoes">
+    <div class="secoes-financeiro">
         <section class="secao-transacao">
             <div class="nova-transacao">
                 <h1>Nova transação</h1>
@@ -55,7 +53,7 @@
                 <input type="text" name="valor-mercadoria" id="valor-mercadoria" placeholder="R$ 0,00">
             </div>
 
-            <button>Adicionar transação</button>
+            <input type="submit" class="btn-adicionar-transacao" value="Adicionar Transação" />
 
         </section>
 
@@ -67,32 +65,32 @@
                     <td class="td-mercadoria"><strong>Mercadoria</strong></td>
                     <td class="td-valor"><strong>Valor</strong></td>
                 </tr>
-                <tr class="underline">
-                    <td class="underline" colspan="3"></td>
+                <tr class="linha-tabela">
+                    <td class="linha-tabela" colspan="3"></td>
                 </tr>
                 <tr>
                     <td>+</td>
-                    <td>Entrada</td>
+                    <td>Geladeira</td>
                     <td>R$ 5.500,00</td>
                 </tr>
-                <tr class="underline">
-                    <td class="underline" colspan="3"></td>
+                <tr class="linha-tabela">
+                    <td class="linha-tabela" colspan="3"></td>
                 </tr>
                 <tr>
                     <td>-</td>
                     <td>Celular</td>
                     <td>R$ 1.999,99</td>
                 </tr>
-                <tr class="underline">
-                    <td class="underline" colspan="3"></td>
+                <tr class="linha-tabela">
+                    <td class="linha-tabela" colspan="3"></td>
                 </tr>
                 <tr>
                     <td>-</td>
                     <td>Passagem</td>
                     <td>R$ 1200,00</td>
                 </tr>
-                <tr class="underline double-underline">
-                    <td class="underline" colspan="3"></td>
+                <tr class="linha-tabela linha-dupla-tabela">
+                    <td class="linha-tabela" colspan="3"></td>
                 </tr>
                 <tr>
                     <td> </td>
