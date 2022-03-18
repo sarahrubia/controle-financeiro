@@ -8,10 +8,10 @@ No projeto tive a chance de aplicar todas as habilidades, princípios e conceito
 
 ## Layout do projeto
 
-![Layout da página desktop](link)
-![Layout da página tablet orientação paisagem](link)
-![Layout da página tablet orientação retrato](link)
-![Layout da página mobile - smartphone](link)
+![Layout da página desktop](https://github.com/sarahrubia/controle-financeiro-nta/blob/main/assets/img/layout/layout-desktop.png)
+![Layout da página tablet orientação paisagem](https://github.com/sarahrubia/controle-financeiro-nta/blob/main/assets/img/layout/layout-tablet-paisagem.png)
+![Layout da página tablet orientação retrato](https://github.com/sarahrubia/controle-financeiro-nta/blob/main/assets/img/layout/layout-tablet-retrato.png?raw=true)
+![Layout da página mobile - smartphone](https://github.com/sarahrubia/controle-financeiro-nta/blob/main/assets/img/layout/layout-mobile.png?raw=true)
 
 ### Interaja com a página
 
