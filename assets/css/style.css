@@ -6,57 +6,32 @@
   box-sizing: border-box;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  margin: 0;
-  padding: 0;
   width: 411px;
   height: 731px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .cabecalho {
-  background-color: #e0e0e0;
+  background-color: #E0E0E0;
 }
 
 .cabecalho-box {
   width: 100%;
-  height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-.cabecalho-box img {
-  width: 15%;
-  max-width: 40px;
+  padding: 12px 10px;
 }
 
 .cabecalho-box h1 {
-  align-self: center;
-  width: 70%;
   font-size: 24px;
 }
 
-.btn-sidenav {
-  cursor: pointer;
-  line-height: 36px;
-  font-size: 40px;
-  width: 15%;
-}
-
-.btn {
-  cursor: pointer;
-  line-height: 36px;
-  text-align: end;
-  font-size: 40px;
-  display: inline-block;
-  width: 33%;
-  padding: 0 10px;
+.cabecalho-box img {
+  width: 100%;
+  max-width: 40px;
 }
 
 .secao-transacao {
@@ -166,48 +141,44 @@ table {
   border-bottom: 5px double #979797;
 }
 
-#minha-sidenav {
+.sidenav {
+  height: 100%;
   position: fixed;
+  z-index: 1;
   top: 0;
-  bottom: 0;
   right: 0;
-  width: 85vw;
-  background: #333;
-  margin-right: -90%;
-  padding: 60px 10px 20px 0;
-  color: white;
-  transition: all 200ms ease-in;
+  background-color: #333333;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
 .sidenav a {
-  text-decoration: none;
-  color: #fff;
-  text-align: right;
-  font-size: 20px;
-  line-height: 20px;
-  padding: 10px 30px 10px 0;
-  display: block;
+padding: 8px 32px 8px 8px;
+text-decoration: none;
+font-size: 20px;
+text-align: right;
+color: #fff;
+display: block;
+transition: 0.3s;
 }
 
 .sidenav a:hover {
-  background-color: #c4c4c4;
-  color: black;
+color: #000;
+background-color:#C4C4C4;
 }
 
-.sidenav-closebtn {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  padding: 0;
-  margin: 0;
-  color: #fff;
-  width: 20px;
-  font-size: 40px;
-  line-height: 1.5;
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+left: 25px;
+font-size: 36px;
+margin-right: 50px;
 }
 
-#aside:checked ~ #sidebar #minha-sidenav {
-  margin-right: 0;
+@media screen and (max-width: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
 }
 
 /* Versão tablet */
@@ -216,22 +187,6 @@ table {
   body {
     width: 100%;
     height: 100%;
-  }
-
-  .cabecalho-box {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  #minha-sidenav {
-    width: 252px;
-  }
-
-  .sidenav a {
-    padding-right: 5px;
   }
 
   .secao-transacao {
@@ -306,28 +261,37 @@ table {
     height: 100%;
   }
 
+  .cabecalho {
+    width: 100%;
+  }
+
   .cabecalho-box {
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    padding-left: 30px;
+    justify-content: center;
   }
 
   .cabecalho-box h1 {
-    width: 50%;
+    width: 650px;
     text-align: left;
     font-size: 20px;
     padding-left: 20px;
   }
 
-  #minha-sidenav {
-    right: 30px;
-    padding: 0;
-    width: fit-content;
-    height: 80px;
-    height: 40px;
-    background-color: #e0e0e0;
-    display: flex;
-    flex-direction: row;
+  .cabecalho-box span {
+    display: none;
+  }
+
+  .sidenav .closebtn {
+    display: none;
+  }
+
+  .cabecalho-box .sidenav {
+    display: contents;
+  }
+
+  .sidenav {
+    margin-left: 100px;
   }
 
   .sidenav a {
@@ -347,6 +311,10 @@ table {
     background-color: #333333;
   }
 
+  .nav-links {
+    display: flex;
+  }
+
   .sidenav .limpar-dados {
     width: 160px;
   }
@@ -363,18 +331,6 @@ table {
     top: 25%;
     height: 50%;
     border-left: 1px solid #333;
-  }
-
-  .sidenav-toggle {
-    display: none;
-  }
-
-  .sidenav-closebtn {
-    display: none;
-  }
-
-  #aside:not(:checked) ~ #sidebar #minha-sidenav {
-    margin-right: 0;
   }
 
   .secoes-financeiro {

@@ -1,120 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap" rel="stylesheet"> 
     <title>Controle Financeiro</title>
-  </head>
-
-  <body>
+</head>
+<body>
     <header class="cabecalho">
-      <div class="cabecalho-box">
-        <img src="./assets/img/logo.png" alt="logo" />
-        <h1>Controle Financeiro</h1>
-        <div class="navigation">
-          <label for="aside" class="btn-sidenav sidenav-toggle">&#9776;</label>
-          <input type="checkbox" id="aside" hidden />
-          <section id="sidebar">
-            <div class="sidenav" id="minha-sidenav">
-              <label for="aside" class="btn sidenav-closebtn">&times;</label>
-              <a href="#" class="cadastro-transacao">Cadastro de transações</a>
-              <a href="#" class="limpar-dados">Limpar dados</a>
+        <div class="cabecalho-box">
+            <img src="./assets/img/logo.png" alt="logo">
+            <h1>Controle Financeiro</h1>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <div  class="sidenav" id="minha-sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="nav-links">
+                    <a href="#" class="cadastro-transacao">Cadastro de transações</a>
+                    <a href="#" class="limpar-dados">Limpar dados</a>
+
+                </div>
             </div>
-          </section>
         </div>
-      </div>
-      
     </header>
 
     <div class="secoes-financeiro">
-      <section class="secao-transacao">
-        <div class="nova-transacao">
-          <h1>Nova transação</h1>
-        </div>
-        <div class="campos-transacao div-tipo-transacao">
-          <label for="tipo-transacao">Tipo de transação</label>
-          <select name="tipo-transacao" id="tipo-transacao">
-            <option value="compra">Compra</option>
-            <option value="venda">Venda</option>
-          </select>
-        </div>
+        <section class="secao-transacao">
+          <div class="nova-transacao">
+            <h1>Nova transação</h1>
+          </div>
+          <div class="campos-transacao div-tipo-transacao">
+            <label for="tipo-transacao">Tipo de transação</label>
+            <select name="tipo-transacao" id="tipo-transacao">
+              <option value="compra">Compra</option>
+              <option value="venda">Venda</option>
+            </select>
+          </div>
+  
+          <div class="campos-transacao div-nome-mercadoria">
+            <label for="nome-mercadoria">Nome da mercadoria</label>
+            <input
+              type="text"
+              name="nome-mercadoria"
+              id="nome-mercadoria"
+              placeholder="Input"
+            />
+          </div>
+  
+          <div class="campos-transacao div-valor-mercadoria">
+            <label for="valor-mercadoria">Valor</label>
+            <input
+              type="text"
+              name="valor-mercadoria"
+              id="valor-mercadoria"
+              placeholder="R$ 0,00"
+            />
+          </div>
+          <div class="div-button">
+            <button class="btn-adicionar-transacao">Adicionar Transação</button>
+          </div>
+        </section>
+  
+        <section class="secao-extrato">
+          <h1>Extrato de transações</h1>
+          <table>
+            <tr>
+              <td class="td-receita"></td>
+              <td class="td-mercadoria"><strong>Mercadoria</strong></td>
+              <td class="td-valor"><strong>Valor</strong></td>
+            </tr>
+            <tr class="linha-tabela">
+              <td class="linha-tabela" colspan="3"></td>
+            </tr>
+            <tr>
+              <td>+</td>
+              <td>Geladeira</td>
+              <td style="text-align:right;">R$ 5.500,00</td>
+            </tr>
+            <tr class="linha-tabela">
+              <td class="linha-tabela" colspan="3"></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>Celular</td>
+              <td style="text-align:right;">R$ 1.999,99</td>
+            </tr>
+            <tr class="linha-tabela">
+              <td class="linha-tabela" colspan="3"></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>Passagem</td>
+              <td style="text-align:right;">R$ 1200,00</td>
+            </tr>
+            <tr>
+              <td class="linha-dupla-tabela" colspan="3"></td>
+              <td class="linha-dupla-tabela" colspan="3"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><strong>Total</strong></td>
+              <td style="text-align:right;"><strong>R$ 2.300,01</strong></td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    
 
-        <div class="campos-transacao div-nome-mercadoria">
-          <label for="nome-mercadoria">Nome da mercadoria</label>
-          <input
-            type="text"
-            name="nome-mercadoria"
-            id="nome-mercadoria"
-            placeholder="Input"
-          />
-        </div>
+    <script>
+        function openNav() {
+          document.getElementById("minha-sidenav").style.width = "350px";
+        }
+        
+        function closeNav() {
+          document.getElementById("minha-sidenav").style.width = "0";
+        }
+    </script>
 
-        <div class="campos-transacao div-valor-mercadoria">
-          <label for="valor-mercadoria">Valor</label>
-          <input
-            type="text"
-            name="valor-mercadoria"
-            id="valor-mercadoria"
-            placeholder="R$ 0,00"
-          />
-        </div>
-        <div class="div-button">
-          <button class="btn-adicionar-transacao">Adicionar Transação</button>
-        </div>
-      </section>
-
-      <section class="secao-extrato">
-        <h1>Extrato de transações</h1>
-        <table>
-          <tr>
-            <td class="td-receita"></td>
-            <td class="td-mercadoria"><strong>Mercadoria</strong></td>
-            <td class="td-valor"><strong>Valor</strong></td>
-          </tr>
-          <tr class="linha-tabela">
-            <td class="linha-tabela" colspan="3"></td>
-          </tr>
-          <tr>
-            <td>+</td>
-            <td>Geladeira</td>
-            <td style="text-align:right;">R$ 5.500,00</td>
-          </tr>
-          <tr class="linha-tabela">
-            <td class="linha-tabela" colspan="3"></td>
-          </tr>
-          <tr>
-            <td>-</td>
-            <td>Celular</td>
-            <td style="text-align:right;">R$ 1.999,99</td>
-          </tr>
-          <tr class="linha-tabela">
-            <td class="linha-tabela" colspan="3"></td>
-          </tr>
-          <tr>
-            <td>-</td>
-            <td>Passagem</td>
-            <td style="text-align:right;">R$ 1200,00</td>
-          </tr>
-          <tr>
-            <td class="linha-dupla-tabela" colspan="3"></td>
-            <td class="linha-dupla-tabela" colspan="3"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><strong>Total</strong></td>
-            <td style="text-align:right;"><strong>R$ 2.300,01</strong></td>
-          </tr>
-        </table>
-      </section>
-    </div>
-  </body>
+</body>
 </html>
