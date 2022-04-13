@@ -29,7 +29,7 @@
     </header>
 
     <div class="secoes-financeiro">
-        <section class="secao-transacao">
+        <form class="secao-transacao" id="form" onsubmit="mascaraValor(event);">
           <div class="nova-transacao">
             <h1>Nova transação</h1>
           </div>
@@ -48,6 +48,7 @@
               name="nome-mercadoria"
               id="nome-mercadoria"
               placeholder="Input"
+              required
             />
           </div>
   
@@ -58,68 +59,80 @@
               name="valor-mercadoria"
               id="valor-mercadoria"
               placeholder="R$ 0,00"
+              required
+              onkeypress="mascaraValor(event);"
+              onfocus="this.value = ''"
+              value=""
             />
           </div>
           <div class="div-button">
             <button class="btn-adicionar-transacao">Adicionar Transação</button>
           </div>
-        </section>
+        </form>
   
         <section class="secao-extrato">
           <h1>Extrato de transações</h1>
-          <table>
-            <tr>
-              <td class="td-receita"></td>
-              <td class="td-mercadoria"><strong>Mercadoria</strong></td>
-              <td class="td-valor"><strong>Valor</strong></td>
-            </tr>
-            <tr class="linha-tabela">
-              <td class="linha-tabela" colspan="3"></td>
-            </tr>
-            <tr>
-              <td>+</td>
-              <td>Geladeira</td>
-              <td style="text-align:right;">R$ 5.500,00</td>
-            </tr>
-            <tr class="linha-tabela">
-              <td class="linha-tabela" colspan="3"></td>
-            </tr>
-            <tr>
-              <td>-</td>
-              <td>Celular</td>
-              <td style="text-align:right;">R$ 1.999,99</td>
-            </tr>
-            <tr class="linha-tabela">
-              <td class="linha-tabela" colspan="3"></td>
-            </tr>
-            <tr>
-              <td>-</td>
-              <td>Passagem</td>
-              <td style="text-align:right;">R$ 1200,00</td>
-            </tr>
-            <tr>
-              <td class="linha-dupla-tabela" colspan="3"></td>
-              <td class="linha-dupla-tabela" colspan="3"></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>Total</strong></td>
-              <td style="text-align:right;"><strong>R$ 2.300,01</strong></td>
-            </tr>
+          <table class="lista-mercadoria">
+            <thead>
+              <tr>
+                <td class="td-receita"></td>
+                <td class="td-mercadoria"><strong>Mercadoria</strong></td>
+                <td class="td-valor"><strong>Valor</strong></td>
+              </tr>
+              <tr class="linha-tabela">
+                <td class="linha-tabela" colspan="3"></td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
+                <td>+</td>
+                <td>Geladeira</td>
+                <td style="text-align:right;">R$ 5.500,00</td>
+              </tr>
+              <tr class="linha-tabela">
+                <td class="linha-tabela" colspan="3"></td>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>Celular</td>
+                <td style="text-align:right;">R$ 1.999,99</td>
+              </tr>
+              <tr class="linha-tabela">
+                <td class="linha-tabela" colspan="3"></td>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>Passagem</td>
+                <td style="text-align:right;">R$ 1200,00</td>
+              </tr> -->
+            </tbody>
+              <tfoot>
+                <tr>
+                  <td class="linha-dupla-tabela" colspan="3"></td>
+                  <td class="linha-dupla-tabela" colspan="3"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong>Total</strong></td>
+                  <td style="text-align:right;"><strong>R$ 2.300,01</strong></td>
+                </tr>
+              </tfoot>
           </table>
         </section>
       </div>
     
 
-    <script>
-        function openNav() {
-          document.getElementById("minha-sidenav").style.width = "350px";
-        }
-        
-        function closeNav() {
-          document.getElementById("minha-sidenav").style.width = "0";
-        }
-    </script>
+<script>
 
+  function openNav() {
+    document.getElementById("minha-sidenav").style.width = "350px";
+      }
+  function closeNav() {
+  document.getElementById("minha-sidenav").style.width = "0";
+}
+</script>
+
+<script src="./assets/js/script.js"></script>
 </body>
+
 </html>
