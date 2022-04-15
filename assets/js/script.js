@@ -76,6 +76,9 @@ function adicionaTabela() {
             <td style="text-align:right;">
             R$ ${listaDeMercadorias[merc]["valor-mercadoria"]}
             </td>
+            <tr class="linha-tabela">
+                <td class="linha-tabela" colspan="3"></td>
+            </tr>
         </tr>`
     }
     
@@ -94,18 +97,45 @@ function adicionaTabela() {
     }
 
     var totalFormatado = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-    
-    document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
-    <tr>
-        <td class="linha-dupla-tabela" colspan="3"></td>
-        <td class="linha-dupla-tabela" colspan="3"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><strong>Total</strong></td>
-        <td style="text-align:right;" id="valor-total"><strong>${totalFormatado}</strong></td>
-  </tr>`
 
+    if (total > 0) {
+        document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
+        <tr>
+            <td class="linha-dupla-tabela" colspan="3"></td>
+            <td class="linha-dupla-tabela" colspan="3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Total</strong></td>
+            <td style="text-align:right; display: block;" id="valor-total"><strong>${totalFormatado}</strong><p>[LUCRO]</p></td>
+        </tr>`
+    } else if (total < 0) {
+        document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
+        <tr>
+            <td class="linha-dupla-tabela" colspan="3"></td>
+            <td class="linha-dupla-tabela" colspan="3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Total</strong></td>
+            <td style="text-align:right; display: block;" id="valor-total"><strong>${totalFormatado}</strong><p>[PREJUÍZO]</p></td>
+        </tr>`
+
+    } else {
+        document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
+        <tr>
+            <td class="linha-dupla-tabela" colspan="3"></td>
+            <td class="linha-dupla-tabela" colspan="3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Total</strong></td>
+            <td style="text-align:right; display: block;" id="valor-total"><strong>${totalFormatado}</strong></td>
+        </tr>`
+
+    }
+
+    
 };
 
 adicionaTabela();
@@ -124,7 +154,7 @@ if (mercadoriasRaw == null) {
     document.querySelector('table.lista-mercadoria tbody').innerHTML += `
     <tr class='conteudo-dinamico'>
         <td colspan="3" style ="text-align: center;"}>
-            Não há transações cadastradas!
+            Nenhuma transação cadastrada.
         </td>
     <tr>`
 };
@@ -153,10 +183,6 @@ function cadastroTransacao(evt) {
     localStorage.setItem('listaDeMercadorias', JSON.stringify(listaDeMercadorias));
     document.getElementById('inicio').click();
 }
-
-
-
-
 
 
 
