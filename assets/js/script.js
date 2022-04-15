@@ -101,7 +101,7 @@ function adicionaTabela() {
     if (total > 0) {
         document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
         <tr>
-            <td class="linha-dupla-tabela" colspan="3"></td>
+            <td class="linha-tabela" style="padding-top: 4px; border-top: 2px solid #979797; border-bottom: 2px solid #979797" colspan="3"></td>
         </tr>
         <tr>
             <td></td>
@@ -111,7 +111,7 @@ function adicionaTabela() {
     } else if (total < 0) {
         document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
         <tr>
-            <td class="linha-dupla-tabela" colspan="3"></td>
+            <td class="linha-tabela" style="padding-top: 4px; border-top: 2px solid #979797; border-bottom: 2px solid #979797" colspan="3"></td>
         </tr>
         <tr>
             <td></td>
@@ -122,7 +122,7 @@ function adicionaTabela() {
     } else {
         document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
         <tr>
-            <td class="linha-dupla-tabela" colspan="3"></td>
+            <td class="linha-tabela" style="padding-top: 4px; border-top: 2px solid #979797; border-bottom: 1px solid #979797" colspan="3"></td>
         </tr>
         <tr>
             <td></td>
@@ -148,7 +148,7 @@ if (mercadoriasRaw == null) {
 
     document.querySelector('table.lista-mercadoria tbody').innerHTML += `
     <tr class='conteudo-dinamico'>
-        <td colspan="3" style ="text-align: center;"}>
+        <td colspan="3" style ="text-align: center; padding-bottom: 10px"}>
             Nenhuma transação cadastrada.
         </td>
     <tr>`
