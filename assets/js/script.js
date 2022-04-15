@@ -102,7 +102,6 @@ function adicionaTabela() {
         document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
         <tr>
             <td class="linha-dupla-tabela" colspan="3"></td>
-            <td class="linha-dupla-tabela" colspan="3"></td>
         </tr>
         <tr>
             <td></td>
@@ -112,7 +111,6 @@ function adicionaTabela() {
     } else if (total < 0) {
         document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
         <tr>
-            <td class="linha-dupla-tabela" colspan="3"></td>
             <td class="linha-dupla-tabela" colspan="3"></td>
         </tr>
         <tr>
@@ -125,7 +123,6 @@ function adicionaTabela() {
         document.querySelector('table.lista-mercadoria tfoot').innerHTML += `
         <tr>
             <td class="linha-dupla-tabela" colspan="3"></td>
-            <td class="linha-dupla-tabela" colspan="3"></td>
         </tr>
         <tr>
             <td></td>
@@ -134,8 +131,6 @@ function adicionaTabela() {
         </tr>`
 
     }
-
-    
 };
 
 adicionaTabela();
