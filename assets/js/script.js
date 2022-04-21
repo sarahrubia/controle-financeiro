@@ -1,4 +1,5 @@
 
+//  Persistir dados no LocalStorage
 
 var mercadoriasRaw = localStorage.getItem('listaDeMercadorias');
 
@@ -11,29 +12,12 @@ if (mercadoriasRaw != null) {
 
 //  Validação e máscara do formulário
 
-// function mascaraValor(e) {
-//     e.preventDefault();
-//     // console.log(e)
-
-//     var meuInput = document.getElementById('valor-mercadoria');
-
-//     meuInput.addEventListener('keypress', function (e) {
-//         var meuInputFormatado = parseFloat(meuInput.value.replace(/\D+/g,''));
-//         meuInputFormatado = (meuInputFormatado/100).toFixed(2) + '';
-//         meuInputFormatado = meuInputFormatado.replace(".", ",");
-//         meuInputFormatado = meuInputFormatado.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-//         meuInputFormatado = meuInputFormatado.replace(/(\d)(\d{3}),/g, "$1.$2,");
-//         meuInput.value = meuInputFormatado
-//         }, false);
-        
-//         if ((/[0-9]+/g).test(e.key) && e.target.value.length < 14) {
-//             e.target.value += e.key
-//     } 
-// }
-
 function mascaraValor(e) {
     e.preventDefault();
-    // console.log(e)
+
+    if ((/[0-9]+/g).test(e.key) && e.target.value.length < 14) {
+        e.target.value += e.key
+    }
 
     var meuInput = Number(e.target.value.replace(/[^0-9]+/g, ''));
     meuInput = (meuInput/100)
@@ -44,12 +28,7 @@ function mascaraValor(e) {
     });
 
     console.log(inputFormatado)
-
     e.target.value = inputFormatado
-        
-    if ((/[0-9]+/g).test(e.key) && e.target.value.length < 14) {
-        e.target.value += e.key
-    } 
 }
 
 
@@ -88,12 +67,12 @@ function adicionaTabela() {
     var total = 0;
 
     for (valor in listaDeMercadorias) {
-        valores = parseFloat(listaDeMercadorias[valor]["valor-mercadoria"].replace(/[^0-9\.,]/g,""))
+        valores = parseFloat(listaDeMercadorias[valor]["valor-mercadoria"].replace(/[^0-9]/g,"").replace(",", "."))
 
         if (listaDeMercadorias[valor]["tipo-transacao"] === '-') {
-            total -= valores 
+            total -= valores / 100
         } else if (listaDeMercadorias[valor]["tipo-transacao"] === '+') {
-            total += valores 
+            total += valores / 100
         }
     }
 
