@@ -4,7 +4,7 @@ var mercadoriasRaw = localStorage.getItem("listaDeMercadorias");
 
 if (mercadoriasRaw != null) {
   var listaDeMercadorias = JSON.parse(mercadoriasRaw);
-} else {
+} else if (mercadoriasRaw == null) {
   var listaDeMercadorias = [];
 }
 
@@ -31,7 +31,8 @@ function mascaraValor(e) {
 
 // Listagem das transações
 
-function adicionaTabela() {
+function desenhaTabela() {
+
   linhasExistentes = [
     ...document.querySelectorAll(
       "table.lista-mercadoria tbody .conteudo-dinamico"
@@ -60,7 +61,16 @@ function adicionaTabela() {
         </tr>`;
   }
 
-  // Cálculo do valor total
+  // Desenhando tabela para quando não houver transações cadastradas
+
+  if (mercadoriasRaw == null) {
+    document.querySelector("table.lista-mercadoria tbody").innerHTML += `
+        <tr id='sem-transacao'>
+            <td colspan="3" style ="text-align: center; padding-bottom: 10px"}>
+                Nenhuma transação cadastrada.
+            </td>
+        <tr>`;
+  }
 
   var total = 0;
 
@@ -95,21 +105,48 @@ function adicionaTabela() {
         </td>
     </tr>`;
 
-  // Adicionando tabela para quando não houver transações cadastradas
-
-  if (mercadoriasRaw == null) {
-    document.querySelector("table.lista-mercadoria tbody").innerHTML += `
-        <tr class='conteudo-dinamico'>
-            <td colspan="3" style ="text-align: center; padding-bottom: 10px"}>
-                Nenhuma transação cadastrada.
-            </td>
-        <tr>`;
-  }
 }
 
-adicionaTabela();
+  // Cálculo do valor total
 
-// Excluindo listagem
+// function calculoTotal() {
+
+//   var total = 0;
+
+//   for (valor in listaDeMercadorias) {
+//     valores = parseFloat(
+//       listaDeMercadorias[valor]["valor-mercadoria"]
+//         .replace(/[^0-9]/g, "")
+//         .replace(",", ".")
+//     );
+
+//     if (listaDeMercadorias[valor]["tipo-transacao"] === "-") {
+//       total -= valores / 100;
+//     } else if (listaDeMercadorias[valor]["tipo-transacao"] === "+") {
+//       total += valores / 100;
+//     }
+//   }
+
+//   var totalFormatado = total.toLocaleString("pt-BR", {
+//     style: "currency",
+//     currency: "BRL",
+//   });
+
+//   document.querySelector("table.lista-mercadoria tfoot").innerHTML += `
+//     <tr>
+//         <td class="linha-tabela" style="padding-top: 4px; border-top: 2px solid #979797; border-bottom: 2px solid #979797" colspan="3"></td>
+//     </tr>
+//     <tr>
+//         <td></td>
+//         <td><strong>Total</strong></td>
+//         <td style="text-align:right; display: block;" id="valor-total"><strong>${totalFormatado}</strong>
+//         <p>${total > 0 ? "[LUCRO]" : total < 0 ? "[PREJUÍZO]" : ""}</p>
+//         </td>
+//     </tr>`;
+
+// }
+
+// Excluindo listagem de mercadorias
 
 function limparDados(merc) {
   confirm("Tem certeza que deseja limpar os dados da pagina?");
@@ -122,14 +159,6 @@ function limparDados(merc) {
 function cadastroTransacao(evt) {
   evt.preventDefault();
 
-  var mercadoriasRaw = localStorage.getItem("listaDeMercadorias");
-
-  if (mercadoriasRaw != null) {
-    var listaDeMercadorias = JSON.parse(mercadoriasRaw);
-  } else {
-    var listaDeMercadorias = [];
-  }
-
   listaDeMercadorias.push({
     "tipo-transacao": evt.target.elements["tipo-transacao"].value,
     "nome-mercadoria": evt.target.elements["nome-mercadoria"].value,
@@ -141,8 +170,35 @@ function cadastroTransacao(evt) {
     JSON.stringify(listaDeMercadorias)
   );
 
-  document.getElementById("inicio").click();
 
+  if (document.getElementById('sem-transacao') != null) {
+    document.getElementById('sem-transacao').remove()
+  }
+
+  if (listaDeMercadorias != null) {
+    document.querySelector("table.lista-mercadoria tbody").innerHTML += `
+    <tr class='conteudo-do-usuario'>
+        <td>
+        ${listaDeMercadorias[listaDeMercadorias.length - 1]["tipo-transacao"]}
+        </td>
+        <td>
+        ${listaDeMercadorias[listaDeMercadorias.length - 1]["nome-mercadoria"]}
+        </td>
+        <td style="text-align:right;">
+        ${listaDeMercadorias[listaDeMercadorias.length - 1]["valor-mercadoria"]}
+        </td>
+        <tr class="linha-tabela">
+            <td class="linha-tabela" colspan="3"></td>
+        </tr>
+    </tr>`;
+
+  // Apagando valores do input após submeter
+
+  document.getElementById('tipo-transacao').value = '-';
+  document.getElementById('nome-mercadoria').value = '';
+  document.getElementById('valor-mercadoria').value = '';
+  }
 }
 
-// Falta atualizar a tabela de transações e limpar os dados sem atualizar a página
+desenhaTabela();
+
