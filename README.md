@@ -19,6 +19,7 @@ No projeto tive a chance de aplicar todas as habilidades, princípios e conceito
 
 ## Tecnologias utilizadas
 
+- JavaScript
 - HTML
 - CSS
 
